@@ -20,4 +20,25 @@
 
 ### Level 3
 
-1. Pickup here.
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. Cat the hidden file in the ~/inhere/ diretory to see the password
+
+### Level 4
+
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. The password file is located under the same ~/inhere/ directory, but this time there are multiple files and only one is human readable text.
+1. To determine which one is human readable text, I ran the 'file' command and cat'd the one file that was ASCII text to discover the password.
+
+### Level 5
+
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. This one is a bit trickier. Same as the previous two, the file with the password is located somewhere under the ~/inhere/ directory. This time though, there are multiple nested directories and many files, making manually finding the file a poor idea. 
+1. The criteria that the password file can be identified by include being human-readable, 1033 bytes in size, and not executable.
+1. To find the file, I used the 'find' command, searching for type file and for a size of 1033 bytes. More could be specified to look for a file that was also human-readable and not executable, but that wasn't necessary here.
+    1. Here's the command I used, I used xargs to cat the file once find found it: `find ./inhere/ -type f -size 1033c | xargs cat`
+
+### Level 6
+
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. TODO - pickup here.
+
