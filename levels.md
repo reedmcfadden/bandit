@@ -36,9 +36,16 @@
 1. The criteria that the password file can be identified by include being human-readable, 1033 bytes in size, and not executable.
 1. To find the file, I used the 'find' command, searching for type file and for a size of 1033 bytes. More could be specified to look for a file that was also human-readable and not executable, but that wasn't necessary here.
     1. Here's the command I used, I used xargs to cat the file once find found it: `find ./inhere/ -type f -size 1033c | xargs cat`
+    1. Updated command to more specifically to search for files that are not executable as well: `find ./inhere/ -type f -size 1033c -not -executable | xargs cat`
 
 ### Level 6
 
 1. Ssh in as the new bandit user with the discovered password as usual.
+1. This is similar to Level 5, but the criteria are different. This time the file to find is 33 bytes in size, owned by user bandit7 and owned by group bandit6.
+1. I was able to craft a similar find command to find the password here: `find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null | xargs cat`
+    1. The list was narrow enough to manually find the file without adding the group filtering, but adding the group filter narrowed it down to a single file which is nice and convenient for piping the file result to xargs and cat.
+
+### Level 7
+
 1. TODO - pickup here.
 
