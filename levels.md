@@ -47,5 +47,20 @@
 
 ### Level 7
 
-1. TODO - pickup here.
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. This challenge requires the use of a new command: 'grep'. Greg can quickly search for text within a file. Since the key is hidden in a large file like a needle in a haystack, but next to a known word, this is a great tool.
+1. Command to find the key: `grep -i millionth ./data.txt | awk
+ '{ print $2 }'`
+    1. I grabbed the field I wanted by piping the output to awk.
 
+### Level 8
+
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. This challenge is similar to the previous, but there are lots of duplicate fake passwords in the file. The key is the only one that appears only once. 
+1. To solve this, I used a combination of sort, uniq, and grep: `sort ./data.txt | uniq -c | grep -w 1`
+    1. Sort obviously sorts the text, so all the duplicates will be next to each other. Uniq gets rid of the duplicates, and also shows a count of how many duplicates there originally were. I then grep'd for the only password that had one occurrence. The -w flag matches a whole 'word', and since the real password is the only one with a count of 1, it matches nicely. Alternatively you could grep for not 10 duplicates with '-v 10' because all of this other fake passwords had 10 duplicate occurrences. I went with the former because it seemed more precise.
+
+### Level 9
+
+1. Ssh in as the new bandit user with the discovered password as usual.
+1. TODO - PICKUP HERE
