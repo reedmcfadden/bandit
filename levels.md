@@ -48,7 +48,7 @@
 ### Level 7
 
 1. Ssh in as the new bandit user with the discovered password as usual.
-1. This challenge requires the use of a new command: 'grep'. Greg can quickly search for text within a file. Since the key is hidden in a large file like a needle in a haystack, but next to a known word, this is a great tool.
+1. This challenge requires the use of a new command: 'grep'. Greg can quickly search for text within a file. Since the key is hidden in a large file like a needle in a haystack, but next to a known word, making this is a great tool.
 1. Command to find the key: `grep -i millionth ./data.txt | awk
  '{ print $2 }'`
     1. I grabbed the field I wanted by piping the output to awk.
