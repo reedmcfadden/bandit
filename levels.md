@@ -63,4 +63,11 @@
 ### Level 9
 
 1. Ssh in as the new bandit user with the discovered password as usual.
+1. This challenge isn't too difficult, although it requires the use of a new command. The password is hidden in a file named 'data.txt' which is random data that grep thinks is binary, so you can't grep it out directly. Enter 'strings'. This command will find sequences of printable chars in a file and print them to stdout. This produces a lot of output, which I then grep'd for a multiple '=' signs like the instructions mentioned. The password was present in the output.
+1. Command I used: `strings ./data.txt | grep ====`.
+    1. This contains some preceeding lines before the password, which could be removed by piping to 'tail -1', but this seemed like overkill. The extra output is nice to see and adds some context.
+
+### Level 10
+
+1. Ssh in as the new bandit user with the discovered password as usual.
 1. TODO - PICKUP HERE
