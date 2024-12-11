@@ -1,2 +1,2 @@
-# bandit
-my work through https://overthewire.org/wargames/bandit/
+# overthewire_ctfs
+my work through https://overthewire.org/wargames/
